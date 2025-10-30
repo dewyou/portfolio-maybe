@@ -44,99 +44,7 @@ a[data-name="logo"]:hover p {
     color: #ff2525 !important;
 }
 
-/* Hamburger Menu Styles */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-/* Hamburger line base styles */
-.hamburger-line {
-    width: 24px;
-    height: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Hamburger line colors - white background = black lines, black background = white lines */
-.bg-white .hamburger-line {
-    background: #000000;
-}
-
-.bg-black .hamburger-line {
-    background: white;
-}
-
-.hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-}
-
-.hamburger.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Mobile Menu Overlay - white background = light menu, black background = dark menu */
-.bg-white .mobile-menu {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.bg-black .mobile-menu {
-    background: rgba(0, 0, 0, 0.95);
-}
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.mobile-menu.active {
-    display: flex;
-}
-
-.bg-white .mobile-menu a,
-.bg-white .mobile-menu button {
-    color: #000000;
-}
-
-.bg-black .mobile-menu a,
-.bg-black .mobile-menu button {
-    color: white;
-}
-
-.mobile-menu a,
-.mobile-menu button {
-    font-family: 'Geist', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: -0.72px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.mobile-menu a:hover,
-.mobile-menu button:hover {
-    color: #ff2525;
-}
+/* Note: Hamburger and mobile menu styles are centralized in home-style.css */
 
 /* Eye Candy Section */
 .eye-candy-section {
@@ -148,10 +56,6 @@ a[data-name="logo"]:hover p {
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-.bg-white .eye-candy-section {
-    background-color: #000000;
 }
 
 .eye-candy-container {
@@ -1077,6 +981,15 @@ a[data-name="logo"]:hover p {
     flex-shrink: 0;
 }
 
+/* Black background for noti.mp4 container */
+.process-image-container:has(video[src*="noti.mp4"]) {
+    background-color: #000000;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Scale down and center noti.mp4 video specifically */
 .process-image-container video[src*="noti.mp4"] {
     width: 70%;
@@ -1212,14 +1125,14 @@ a[data-name="logo"]:hover p {
    MEDIA QUERIES - Tablet (600px to 999px)
    ===================================== */
 @media screen and (min-width: 600px) and (max-width: 999px) {
-    /* Show hamburger menu on tablet */
+    /* Show hamburger on tablet */
     .hamburger {
-        display: flex !important;
+        display: block !important;
     }
     
     /* Hide desktop nav links and email on tablet */
     nav > div > div:nth-child(2),
-    nav > div > button {
+    nav > div > button#email-copy {
         display: none !important;
     }
     
@@ -1567,14 +1480,14 @@ a[data-name="logo"]:hover p {
    MEDIA QUERIES - Mobile (below 600px)
    ===================================== */
 @media screen and (max-width: 599px) {
-    /* Show hamburger menu on mobile */
+    /* Show hamburger on mobile */
     .hamburger {
-        display: flex !important;
+        display: block !important;
     }
     
     /* Hide desktop nav links and email on mobile */
     nav > div > div:nth-child(2),
-    nav > div > button {
+    nav > div > button#email-copy {
         display: none !important;
     }
     

@@ -131,7 +131,7 @@ function handleSmoothScaling() {
     // Image container scaling
     if (imageContainer) {
         const imageGap = 12 + (progress * 2);
-        const imageHeight = 500 + (progress * 115);
+        const imageHeight = 600 + (progress * 120); // 600px to 720px
         
         imageContainer.style.cssText = `
             gap: ${imageGap}px;

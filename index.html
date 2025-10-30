@@ -41,7 +41,7 @@
             
             .image-container {
                 gap: 12px;
-                height: 500px;
+                height: 600px;
             }
             
             .image-container .basis-0 {
@@ -70,7 +70,7 @@
             
             .image-container {
                 gap: 14px;
-                height: 615px;
+                height: 720px;
             }
             
             .image-container .basis-0 {
@@ -117,45 +117,6 @@
             text-decoration: underline !important;
         }
         
-        /* Hamburger menu animation */
-        #hamburger-menu.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        #hamburger-menu.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        
-        #hamburger-menu.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        /* Mobile menu overlay */
-        .mobile-menu {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) !important;
-        }
-        
-        /* Ensure mobile menu elements are white */
-        .mobile-menu button svg,
-        .mobile-menu a {
-            color: white !important;
-        }
-        
-        .mobile-menu button svg path {
-            stroke: white !important;
-        }
-        
-        /* Ensure mobile menu hover effects work */
-        .mobile-menu a:hover {
-            color: #ff2525 !important;
-        }
     </style>
     
     <script>
@@ -185,7 +146,7 @@
         <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
             
             <!-- Logo/Name -->
-            <a href="home.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
+            <a href="index.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
                 <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
                 <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
             </a>
@@ -214,43 +175,42 @@
         <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
             
             <!-- Logo/Name -->
-            <a href="home.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
+            <a href="index.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
                 <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
                 <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
             </a>
             
             <!-- Hamburger Menu Button -->
-            <button id="hamburger-menu" class="flex flex-col gap-[4px] cursor-pointer" onclick="toggleMobileMenu()">
-                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
-                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
-                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
+            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
             </button>
-        </div>
-        
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-[#151515] z-50 -translate-y-full transition-transform duration-300">
-            <!-- Close Arrow -->
-            <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-white hover:text-[#ff2525] transition-colors">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" stroke="white"></path>
-                </svg>
-            </button>
-            
-            <!-- Navigation Links Container -->
-            <div class="flex flex-col items-center justify-center h-full gap-8">
-                <a href="product-work.html" class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
-                <a href="experiments.html" class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
-                <a 
-                    href="#" 
-                    id="mobile-email-copy"
-                    class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors cursor-pointer" 
-                    onclick="copyEmailMobile(); return false;"
-                >
-                    dylandeweydesign@gmail.com
-                </a>
-            </div>
         </div>
     </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu">
+        <!-- Close Arrow -->
+        <button onclick="toggleMobileMenu()" class="mobile-menu-close">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        
+        <!-- Navigation Links Container -->
+        <div class="mobile-menu-content">
+            <a href="product-work.html" onclick="toggleMobileMenu()">Product Work</a>
+            <a href="experiments.html" onclick="toggleMobileMenu()">Experiments</a>
+            <a 
+                href="#" 
+                id="mobile-email-copy"
+                onclick="copyEmailMobile(); return false;"
+            >
+                dylandeweydesign@gmail.com
+            </a>
+        </div>
+    </div>
 
     <!-- Desktop Layout (hidden on tablet) -->
     <div class="main-content box-border content-stretch flex flex-col desktop-min:flex-row gap-[30px] desktop-min:gap-[40px] desktop-max:gap-[50px] items-end px-[24px] desktop-min:px-[36px] desktop-max:px-[46px] relative size-full min-h-screen -mt-16 hidden tablet:hidden tablet-max:hidden desktop-min:flex desktop-max:flex">
@@ -326,7 +286,7 @@
     <div class="tablet-content box-border content-stretch flex flex-col gap-[36px] items-start justify-center px-[46px] py-[48px] relative size-full min-h-[1200px] hidden tablet:flex tablet-max:flex desktop-min:hidden desktop-max:hidden -mt-16 tablet:mt-8 tablet-max:mt-8">
         <!-- Title Section -->
         <div class="content-stretch flex flex-col gap-[56px] h-[530px] items-start relative shrink-0 w-full">
-            <p class="font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
+            <p class="intro-title font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
                 Product Designer
             </p>
             <div class="content-stretch flex flex-col gap-[85px] items-start relative shrink-0 w-full">
@@ -398,7 +358,7 @@
     <div class="mobile-content box-border content-stretch flex flex-col gap-[36px] items-start justify-end px-[46px] py-[48px] relative size-full mobile:flex mobile-max:flex tablet:hidden tablet-max:hidden desktop-min:hidden desktop-max:hidden -mt-16 mobile:mt-8 mobile-max:mt-8">
         <!-- Title Section -->
         <div class="content-stretch flex flex-col gap-[56px] h-[530px] items-start relative shrink-0 w-full">
-            <p class="font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
+            <p class="intro-title font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
                 Product Designer
             </p>
             <div class="content-stretch flex flex-col gap-[85px] items-start relative shrink-0 w-full">
@@ -442,21 +402,21 @@
             <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
         </div>
         
-        <!-- Quote and Images Section -->
-        <div class="content-stretch flex flex-col gap-[42px] items-start relative shrink-0 w-full">
-            <div class="content-stretch flex flex-col gap-[14px] h-[615px] items-start justify-center relative shrink-0 w-full">
-                <a href="bloombit.html" class="basis-0 grow min-h-px min-w-px rounded-[16px] shrink-0 w-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
-                    <img src="images/bloombit/thumbnail_main.avif" alt="Bloombit Project" class="w-full h-full object-cover">
-                </a>
-                <a href="naxnow.html" class="basis-0 grow min-h-px min-w-px rounded-[16px] shrink-0 w-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
-                    <img src="images/nax-now/main_thumbnail.avif" alt="NaxNow Project" class="w-full h-full object-cover">
-                </a>
-            </div>
-            <div class="content-stretch flex flex-col gap-[10px] items-start justify-center relative shrink-0 w-full">
-                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[24px] tracking-[1.2px] w-full">
-                    As a young product designer there's never been a better time to surf the curve. Rapidly adapting to the shifts of the tide, I am apart of a fresh do it all generation of design.
-                </p>
-            </div>
+        <!-- Images Section -->
+        <div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+            <a href="bloombit.html" class="w-full h-[300px] rounded-[16px] overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="images/bloombit/thumbnail_main.avif" alt="Bloombit Project" class="w-full h-full object-cover">
+            </a>
+            <a href="naxnow.html" class="w-full h-[300px] rounded-[16px] overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="images/nax-now/main_thumbnail.avif" alt="NaxNow Project" class="w-full h-full object-cover">
+            </a>
+        </div>
+        
+        <!-- Quote Section -->
+        <div class="content-stretch flex flex-col gap-[10px] items-start justify-center relative shrink-0 w-full">
+            <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[24px] tracking-[1.2px] w-full">
+                As a young product designer there's never been a better time to surf the curve. Rapidly adapting to the shifts of the tide, I am apart of a fresh do it all generation of design.
+            </p>
         </div>
         
         <!-- Navigation Dots -->

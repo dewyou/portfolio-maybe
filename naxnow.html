@@ -35,7 +35,7 @@
         <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
             
             <!-- Logo/Name -->
-            <a href="home.html" class="flex gap-[18px] items-center" data-name="logo">
+            <a href="index.html" class="flex gap-[18px] items-center" data-name="logo">
                 <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
                 <p class="link-text-01 text-black whitespace-nowrap">Dylan Dewey Widick</p>
             </a>
@@ -56,28 +56,37 @@
                 dylandeweydesign@gmail.com
             </button>
             
-            <!-- Hamburger Menu (Tablet) -->
-            <div class="hamburger" onclick="toggleMobileMenu()">
+            <!-- Hamburger Menu (Tablet/Mobile) -->
+            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
-            </div>
+            </button>
             
         </div>
     </nav>
     
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobile-menu">
-        <a href="product-work.html" class="nav-link hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
-        <a href="experiments.html" class="nav-link hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
-        <button 
-            id="email-copy-mobile"
-            class="nav-link hover:text-[#ff2525] transition-colors" 
-            onclick="copyEmailMobile()"
-            title="Click to copy email"
-        >
-            dylandeweydesign@gmail.com
+        <!-- Close Arrow -->
+        <button onclick="toggleMobileMenu()" class="mobile-menu-close">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
+        
+        <!-- Navigation Links Container -->
+        <div class="mobile-menu-content">
+            <a href="product-work.html" onclick="toggleMobileMenu()">Product Work</a>
+            <a href="experiments.html" onclick="toggleMobileMenu()">Experiments</a>
+            <button 
+                id="email-copy-mobile"
+                onclick="copyEmailMobile()"
+                title="Click to copy email"
+            >
+                dylandeweydesign@gmail.com
+            </button>
+        </div>
     </div>
     
     <!-- Main Content -->
@@ -88,7 +97,7 @@
             <div class="eye-candy-container" data-name="Eye_Candy" data-node-id="144:431">
                 <div class="eye-candy-image" data-name="Screenshot 2025-07-31 at 9.52.24 AM 1" data-node-id="144:432">
                     <video autoplay muted loop playsinline>
-                        <source src="images/nax-now/delivery.mp4" type="video/mp4">
+                        <source src="images/nax-now/intro.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -481,9 +490,19 @@
                 <div class="process-item process-item-right" data-node-id="144:532-duplicate">
                     <div class="process-image-container" data-node-id="144:533-duplicate">
                         <video autoplay muted loop playsinline class="process-image">
-                            <source src="images/nax-now/finalfinalfinal.mp4" type="video/mp4">
+                            <source src="images/nax-now/map_.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="process-section my-24" data-node-id="144:520-additional-5">
+            <div class="process-row" data-node-id="144:521-additional-5">
+                <div class="process-item process-item-full-width" data-node-id="144:522-additional-5">
+                    <div class="process-image-container" data-node-id="144:526-additional-5">
+                        <img src="images/nax-now/cant refuse help WIDE MOCKUP.avif" alt="Final application" class="process-image" />
                     </div>
                 </div>
             </div>
@@ -503,9 +522,19 @@
                 <div class="process-item process-item-right" data-node-id="144:532-additional-1">
                     <div class="process-image-container" data-node-id="144:533-additional-1">
                         <video autoplay muted loop playsinline class="process-image">
-                            <source src="images/nax-now/map_.mp4" type="video/mp4">
+                            <source src="images/nax-now/finalfinalfinal.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="process-section my-24" data-node-id="144:520-additional-6">
+            <div class="process-row" data-node-id="144:521-additional-6">
+                <div class="process-item process-item-full-width" data-node-id="144:522-additional-6">
+                    <div class="process-image-container" data-node-id="144:526-additional-6">
+                        <img src="images/nax-now/rewrite-story-MOCKUP.avif" alt="Final application" class="process-image" />
                     </div>
                 </div>
             </div>
@@ -532,18 +561,42 @@
             </div>
         </section>
         
-        <section class="process-section my-24" data-node-id="144:520-additional-3">
-            <div class="process-row" data-node-id="144:521-additional-3">
-                <div class="process-item" data-node-id="144:522-additional-3">
-                    <div class="process-image-container" data-node-id="144:526-additional-3">
-                        <img src="images/nax-now/app-image-5.avif" alt="Final application" class="process-image" />
+        <section class="process-section my-24" data-node-id="144:520-additional-7">
+            <div class="process-row" data-node-id="144:521-additional-7">
+                <div class="process-item process-item-full-width" data-node-id="144:522-additional-7">
+                    <div class="process-image-container" data-node-id="144:526-additional-7">
+                        <img src="images/nax-now/Same amount of ODs MOCKUP.avif" alt="Final application" class="process-image" />
                     </div>
                 </div>
-                <div class="process-item process-item-right" data-node-id="144:532-additional-3">
-                    <div class="process-image-container" data-node-id="144:533-additional-3">
-                        <img src="images/nax-now/app-image-6.avif" alt="Final application" class="process-image" />
+            </div>
+        </section>
+        
+        <!-- Key Takeaways Section -->
+        <section class="process-section my-24" data-node-id="144:520-key-takeaways">
+            <div class="process-row" data-node-id="144:521-key-takeaways">
+                <div class="process-item" data-node-id="144:522-key-takeaways">
+                    <div class="process-header" data-node-id="144:523-key-takeaways">
+                        <div class="process-square" data-node-id="144:524-key-takeaways"></div>
+                        <p class="process-label" data-node-id="144:525-key-takeaways">
+                            <a href="https://www.naxnow.com" target="_blank" class="hover:text-[#ff2525] transition-colors">www.naxnow.com</a>
+                        </p>
                     </div>
+                    <p class="research-text research-text-broad" data-node-id="144:500-key-takeaways" style="width: 100%;">
+                        For more information on this project, check out <a href="https://www.naxnow.com" target="_blank" class="hover:text-[#ff2525] transition-colors underline">this website</a>. We submitted this project for 2025 AKQA Future Lions.
+                    </p>
                 </div>
+            </div>
+        </section>
+        
+        <!-- Next Project Navigation -->
+        <section class="next-project-nav my-24" data-node-id="144:600">
+            <div class="next-project-container" data-node-id="144:601">
+                <a href="bloombit.html" class="next-project-link link-text-01 text-black hover:text-[#ff2525] transition-colors" data-node-id="144:602">
+                    Next Project →
+                </a>
+                <a href="experiments.html" class="next-project-link link-text-01 text-black hover:text-[#ff2525] transition-colors" data-node-id="144:603">
+                    Experiments →
+                </a>
             </div>
         </section>
         
@@ -914,4 +967,5 @@
 
 </body>
 </html>
+
 

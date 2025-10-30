@@ -49,15 +49,22 @@ function copyEmailMobile() {
 }
 
 /**
- * Toggle mobile menu
+ * Toggle mobile menu - Simple version
  */
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const hamburger = document.querySelector('.hamburger');
     
-    if (menu && hamburger) {
-        menu.classList.toggle('active');
-        hamburger.classList.toggle('active');
+    // Toggle the 'open' class instead of 'active'
+    if (menu) {
+        menu.classList.toggle('open');
+    }
+    
+    if (hamburger) {
+        hamburger.classList.toggle('open');
     }
 }
+
+// Make it globally available immediately
+window.toggleMobileMenu = toggleMobileMenu;
 

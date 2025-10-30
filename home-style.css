@@ -100,25 +100,99 @@ body {
     overflow: hidden;
 }
 
-/* Hamburger menu styles (shared by tablet and phone) */
+/* ===================================== 
+   SIMPLE HAMBURGER MENU
+   ===================================== */
+
+/* Hamburger button */
+.hamburger {
+    display: none; /* Hidden by default, shown in media queries */
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
 .hamburger-line {
+    display: block;
     width: 24px;
     height: 2px;
-    background: #191919;
-    transition: all 0.3s ease;
+    background: white;
+    margin: 4px 0;
+    transition: 0.3s;
 }
 
-/* Hamburger animation when open */
-.hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
+/* Hamburger X animation */
+.hamburger.open .hamburger-line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.hamburger.active .hamburger-line:nth-child(2) {
+.hamburger.open .hamburger-line:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+.hamburger.open .hamburger-line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+    display: none; /* Completely hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(21, 21, 21, 0.98);
+    z-index: 9999;
+}
+
+/* When open, show as flex */
+.mobile-menu.open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Close button */
+.mobile-menu-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.mobile-menu-close:hover {
+    color: #ff2525;
+}
+
+/* Menu links container */
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.mobile-menu-content a,
+.mobile-menu-content button {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Geist Mono', monospace;
+}
+
+.mobile-menu-content a:hover,
+.mobile-menu-content button:hover {
+    color: #ff2525;
 }
 
 /* Tablet Breakpoint: 581px to 1175px */
@@ -151,13 +225,9 @@ body {
         letter-spacing: -0.64px;
     }
     
-    /* Hamburger menu for tablet */
+    /* Show hamburger on tablet */
     .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1001;
+        display: block !important;
     }
     
     /* Adjust navbar for tablet */
@@ -165,49 +235,10 @@ body {
         justify-content: space-between !important;
     }
     
-    /* Show navigation links and email on tablet */
-    nav > div > div:nth-child(2),
-    nav > div > button {
-        display: flex !important;
-    }
-    
-    /* Hide hamburger on tablet since we're showing nav links */
-    .hamburger {
-        display: none !important;
-    }
-    
     /* Footer responsive on tablet */
     .footer-responsive {
         padding-left: 2rem !important;
         padding-right: 2rem !important;
-    }
-    
-    /* Mobile menu overlay */
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        z-index: 1000;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-    }
-    
-    .mobile-menu.active {
-        display: flex !important;
-    }
-    
-    .mobile-menu a,
-    .mobile-menu button {
-        font-family: var(--body-font);
-        font-size: 20px;
-        color: #191919;
-        text-decoration: none;
     }
     
     /* Hide about section on tablet to avoid duplication with phone hero */
@@ -234,15 +265,6 @@ body {
 }
 
 .hero-tablet {
-    display: none;
-}
-
-/* Hide hamburger and mobile menu on desktop */
-.hamburger {
-    display: none;
-}
-
-.mobile-menu {
     display: none;
 }
 
@@ -277,18 +299,14 @@ body {
         letter-spacing: -0.64px;
     }
     
-    /* Hamburger menu for phone */
+    /* Show hamburger on phone */
     .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1001;
+        display: block !important;
     }
     
-    /* Adjust navbar */
+    /* Adjust navbar to 16px horizontal padding */
     nav {
-        padding: 1.5rem 0.5rem !important;
+        padding: 1.5rem 1rem !important;
     }
     
     nav > div {
@@ -301,44 +319,58 @@ body {
         justify-content: flex-start !important;
     }
     
-    /* Show navigation links and email on phone */
-    nav > div > div:nth-child(2),
-    nav > div > button {
-        display: flex !important;
+    /* Ensure 16px page gutters */
+    body {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
-    
-    /* Hide hamburger on phone since we're showing nav links */
-    .hamburger {
-        display: none !important;
+    main {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
-    
-    /* Mobile menu overlay for phone */
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        z-index: 1000;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
+    .mobile-content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
-    
-    .mobile-menu.active {
-        display: flex !important;
+
+    /* Index mobile: ensure content stretches margin-to-margin and text stays within gutters */
+    .mobile-content > div,
+    .mobile-content .content-stretch,
+    .mobile-content .image-container,
+    .mobile-content a {
+        width: 100% !important;
+        max-width: 100% !important;
     }
-    
-    .mobile-menu a,
-    .mobile-menu button {
-        font-family: var(--body-font);
-        font-size: 20px;
-        color: #191919;
-        text-decoration: none;
+    .mobile-content h1,
+    .mobile-content p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
     }
+    .mobile-content img,
+    .mobile-content video {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+    /* Force image sections to span full width inside mobile content */
+    .mobile-content .basis-0 {
+        flex-basis: 100% !important;
+    }
+    .mobile-content .grow,
+    .mobile-content .image-container > a {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .mobile-content .image-container > a > img,
+    .mobile-content .image-container > a > video {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+
     
     /* Hide about section on phone */
     .about-section {
@@ -351,10 +383,18 @@ body {
         padding-right: 1rem !important;
     }
     
-    /* Hero section padding */
+    /* Hero section padding: 16px */
     [data-name="hero-section"] {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Index mobile title size and line-height override */
+    .mobile-content .intro-title {
+        font-size: 72px !important;
+        line-height: 72px !important; /* override leading-[90px] */
+        letter-spacing: -0.02em !important;
+        width: 100% !important; /* override w-[415px] */
     }
 }
 
