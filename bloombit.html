@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloombit - Dylan Dewey Widick</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ff2525'/></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="home-style.css">
+    <link rel="stylesheet" href="project-style.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Common JS -->
+    <script src="common.js"></script>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Navbar -->
+    <nav class="w-full px-8 py-6" data-name="navbar">
+        <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
+            
+            <!-- Logo/Name -->
+            <a href="home.html" class="flex gap-[18px] items-center" data-name="logo">
+                <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
+            </a>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="flex gap-[89px] items-center link-text-01 text-white">
+                <a href="product-work.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Product Work</a>
+                <a href="experiments.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Experiments</a>
+            </div>
+            
+            <!-- Email - Copy to Clipboard (Desktop) -->
+            <button 
+                id="email-copy" 
+                class="nav-link link-text-01 text-white whitespace-nowrap hover:text-[#ff2525] transition-colors" 
+                onclick="copyEmail()"
+                title="Click to copy email"
+            >
+                dylandeweydesign@gmail.com
+            </button>
+            
+            <!-- Hamburger Menu (Tablet) -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="product-work.html" class="nav-link hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
+        <a href="experiments.html" class="nav-link hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
+        <button 
+            id="email-copy-mobile"
+            class="nav-link hover:text-[#ff2525] transition-colors" 
+            onclick="copyEmailMobile()"
+            title="Click to copy email"
+        >
+            dylandeweydesign@gmail.com
+        </button>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="px-8 py-12">
+        
+        <!-- Eye Candy Section -->
+        <section class="eye-candy-section mb-24" data-name="Eye_Candy" data-node-id="144:430">
+            <div class="eye-candy-container" data-name="Eye_Candy" data-node-id="144:431">
+                <div class="eye-candy-image" data-name="Screenshot 2025-07-31 at 9.52.24 AM 1" data-node-id="144:432">
+                    <video autoplay muted loop playsinline>
+                        <source src="images/bloombit/videos/eyecandy.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Intro Title Section -->
+        <section class="intro-title-section" data-name="Intro Title" data-node-id="144:433">
+            <p class="intro-title-text" data-node-id="144:434">
+                An exploration into how humans and plants interact
+            </p>
+            
+            <div class="intro-details" data-node-id="144:435">
+                <div class="impact-section" data-name="Impact" data-node-id="144:436">
+                    <p class="impact-label" data-node-id="144:437">
+                        My Impact
+                    </p>
+                    <p class="impact-value" data-node-id="144:438">
+                        Product Design
+                    </p>
+                </div>
+                
+                <div class="weapons-section" data-name="Weapons of choice" data-node-id="144:439">
+                    <p class="weapons-label" data-node-id="144:440">
+                        Weapons of choice
+                    </p>
+                    <p class="weapon-item" data-node-id="144:441">
+                        Figma
+                    </p>
+                    <p class="weapon-item" data-node-id="144:442">
+                        Photoshop
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456">
+            <div class="divider-square" data-node-id="144:457"></div>
+            <div class="divider-square" data-node-id="144:458"></div>
+        </section>
+        
+        <!-- Problem Statement Section -->
+        <section class="problem-statement-section mt-24" data-node-id="144:444">
+            <div class="problem-content" data-node-id="144:445">
+                
+                <!-- The Problem -->
+                <div class="intro-info" data-name="intro info" data-node-id="144:446">
+                    <div class="description-header" data-name="Description 01" data-node-id="144:447">
+                        <div class="square-divide" data-name="Square Divide" data-node-id="144:448"></div>
+                        <p class="description-label" data-node-id="144:449">
+                            The Problem
+                        </p>
+                    </div>
+                    <p class="description-text" data-node-id="144:450">
+                        <span class="highlight-number">66</span>
+                        <span class="highlight-percent">% </span>
+                        <span class="highlight-text">of American households own at least one plant. The average plant owner has murdered 7 plants.</span>
+                    </p>
+                </div>
+                
+                <!-- The Question -->
+                <div class="intro-info" data-name="intro info" data-node-id="144:451">
+                    <div class="description-header" data-name="Description 01" data-node-id="144:452">
+                        <div class="square-divide" data-node-id="144:453"></div>
+                        <p class="description-label" data-node-id="144:454">
+                            The Question
+                        </p>
+                    </div>
+                    <p class="description-text" data-node-id="144:455">
+                        How do we stop the killings?
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456">
+            <div class="divider-square" data-node-id="144:457"></div>
+            <div class="divider-square" data-node-id="144:458"></div>
+        </section>
+        
+        <!-- Solution Section -->
+        <section class="solution-section my-24" data-node-id="144:459">
+            <p class="solution-number" data-node-id="144:460">
+                00
+            </p>
+            <div class="solution-text-container" data-node-id="144:461">
+                <div class="solution-text" data-node-id="144:462">
+                    <p>The</p>
+                    <p>Solution</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456-solution">
+            <div class="divider-square" data-node-id="144:457-solution"></div>
+            <div class="divider-square" data-node-id="144:458-solution"></div>
+        </section>
+        
+        <!-- Process Section - Duplicate for Solution -->
+        <section class="process-section my-24" data-node-id="144:520-solution">
+            <div class="process-row" data-node-id="144:521-solution">
+                <div class="process-item" data-node-id="144:522-solution">
+                    <div class="process-image-container" data-node-id="144:526-solution">
+                        <img src="images/bloombit/thumbnail_main.avif" alt="Digital solution" class="process-image" />
+                    </div>
+                    <div class="process-header" data-node-id="144:537-solution">
+                        <p class="process-label process-label-left" data-node-id="144:538-solution">
+                            Digital solution
+                        </p>
+                        <div class="process-square" data-node-id="144:539-solution"></div>
+                    </div>
+                    <p class="process-description" data-node-id="144:540-solution">
+                        A mobile app for keeping track of the 5 keys of plant health and a consistent way to monitor whats going on. Nothing fancy for confusion just straight forward information.
+                    </p>
+                </div>
+                <div class="process-item process-item-right" data-node-id="144:532-solution">
+                    <div class="process-image-container" data-node-id="144:533-solution">
+                        <img src="images/bloombit/sensor.avif" alt="Physical solution" class="process-image" />
+                    </div>
+                    <div class="process-header" data-node-id="144:537-solution-right">
+                        <p class="process-label process-label-left" data-node-id="144:538-solution-right">
+                            Physical solution
+                        </p>
+                        <div class="process-square" data-node-id="144:539-solution-right"></div>
+                    </div>
+                    <p class="process-description" data-node-id="144:540-solution-right">
+                        Multiple sensors for multiple plants. Inexpensive and monitoring the big 5. Soil moisture, Ph, temperature, humidity, and UV.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:487">
+            <div class="divider-square" data-node-id="144:488"></div>
+            <div class="divider-square" data-node-id="144:489"></div>
+        </section>
+        
+        <!-- Section 01 - Defining The Problem -->
+        <section class="section-01 my-24" data-node-id="144:490">
+            <p class="section-01-number" data-node-id="144:491">
+                01
+            </p>
+            <div class="section-01-text-container" data-node-id="144:492">
+                <div class="section-01-text" data-node-id="144:493">
+                    <p>Defining</p>
+                    <p>The Problem</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456-duplicate">
+            <div class="divider-square" data-node-id="144:457-duplicate"></div>
+            <div class="divider-square" data-node-id="144:458-duplicate"></div>
+        </section>
+        
+        <!-- Broad Search Section -->
+        <section class="research-item research-item-left my-24" data-node-id="144:496">
+            <div class="research-header" data-node-id="144:497">
+                <p class="research-label research-label-broad" data-node-id="144:498">
+                    BROAD SEARCH
+                </p>
+                <div class="research-square research-square-right" data-node-id="144:499"></div>
+            </div>
+            <p class="research-text research-text-broad" data-node-id="144:500">
+                The average plant owners owns seven plants.
+            </p>
+        </section>
+        
+        <!-- Problem Statement Section - Duplicate -->
+        <section class="problem-statement-section mt-24" data-node-id="144:444-duplicate">
+            <div class="problem-content" data-node-id="144:445-duplicate">
+                
+                <!-- The Problem -->
+                <div class="intro-info" data-name="intro info" data-node-id="144:446-duplicate">
+                    <div class="description-header" data-name="Description 01" data-node-id="144:447-duplicate">
+                        <div class="square-divide" data-name="Square Divide" data-node-id="144:448-duplicate"></div>
+                        <p class="description-label" data-node-id="144:449-duplicate">
+                            User Interviews
+                        </p>
+                    </div>
+                    <p class="description-text" data-node-id="144:450-duplicate">
+                        "If there was a smart sensor that was in a five pack, I would buy it"
+                    </p>
+                </div>
+                
+                <!-- The Question -->
+                <div class="intro-info" data-name="intro info" data-node-id="144:451-duplicate">
+                    <div class="description-header" data-name="Description 01" data-node-id="144:452-duplicate">
+                        <div class="square-divide" data-node-id="144:453-duplicate"></div>
+                        <div class="square-divide" data-node-id="144:454-duplicate"></div>
+                    </div>
+                    <p class="description-text" data-node-id="144:455-duplicate">
+                        Plant owners do not want to invest in a single sensor, they need a solution that involves their whole family of plants.
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+        
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:512">
+            <div class="divider-square" data-node-id="144:513"></div>
+            <div class="divider-square" data-node-id="144:514"></div>
+        </section>
+        
+        <!-- Section 02 - Ideation Techniques -->
+        <section class="section-02 my-24" data-node-id="144:515">
+            <div class="section-02-text-container" data-node-id="144:516">
+                <div class="section-02-text" data-node-id="144:517">
+                    <p>Ideation</p>
+                    <p>Techniques</p>
+                </div>
+            </div>
+            <p class="section-02-number" data-node-id="144:518">
+                02
+            </p>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456-duplicate-2">
+            <div class="divider-square" data-node-id="144:457-duplicate-2"></div>
+            <div class="divider-square" data-node-id="144:458-duplicate-2"></div>
+        </section>
+        
+        <!-- Process Section -->
+        <section class="process-section my-24" data-node-id="144:520">
+            <div class="process-row" data-node-id="144:521">
+                <div class="process-item" data-node-id="144:522">
+                    <div class="process-header" data-node-id="144:523">
+                        <div class="process-square" data-node-id="144:524"></div>
+                        <p class="process-label" data-node-id="144:525">
+                            MAPPING USER FLOWS
+                        </p>
+                    </div>
+                    <div class="process-image-container" data-node-id="144:526">
+                        <video autoplay muted loop playsinline class="process-image">
+                            <source src="images/bloombit/videos/userflows.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="process-item process-item-right" data-node-id="144:532">
+                    <div class="process-image-container" data-node-id="144:533">
+                        <img src="images/bloombit/wireframes1.avif" alt="Wireframes" class="process-image" />
+                    </div>
+                    <div class="process-header" data-node-id="144:537">
+                        <p class="process-label process-label-left" data-node-id="144:538">
+                            WIREFRAMING
+                        </p>
+                        <div class="process-square" data-node-id="144:539"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Additional Process Section 1 -->
+        <section class="process-section my-24" data-node-id="144:520-additional1">
+            <div class="process-row" data-node-id="144:521-additional1">
+                <div class="process-item" data-node-id="144:522-additional1">
+                    <div class="process-header" data-node-id="144:523-additional1">
+                        <div class="process-square" data-node-id="144:524-additional1"></div>
+                        <p class="process-label" data-node-id="144:525-additional1">
+                            USER TESTING
+                        </p>
+                    </div>
+                    <div class="process-image-container" data-node-id="144:526-additional1">
+                        <img src="images/bloombit/marc.avif" alt="User testing" class="process-image" />
+                    </div>
+                </div>
+                <div class="process-item process-item-right" data-node-id="144:532-additional1">
+                    <div class="process-image-container" data-node-id="144:533-additional1">
+                        <img src="images/bloombit/Ideration.avif" alt="Ideation" class="process-image" />
+                    </div>
+                    <div class="process-header" data-node-id="144:537-additional1">
+                        <p class="process-label process-label-left" data-node-id="144:538-additional1">
+                            ITERATION
+                        </p>
+                        <div class="process-square" data-node-id="144:539-additional1"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:545">
+            <div class="divider-square" data-node-id="144:546"></div>
+            <div class="divider-square" data-node-id="144:547"></div>
+        </section>
+        
+        <!-- Final Prototype Section -->
+        <section class="section-03 my-24" data-node-id="144:548">
+            <p class="section-03-number" data-node-id="144:549">
+                03
+            </p>
+            <div class="section-03-text-container" data-node-id="144:550">
+                <div class="section-03-text" data-node-id="144:551">
+                    <p>Final</p>
+                    <p>Prototype</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider Section -->
+        <section class="divider-section my-24" data-node-id="144:456-duplicate-3">
+            <div class="divider-square" data-node-id="144:457-duplicate-3"></div>
+            <div class="divider-square" data-node-id="144:458-duplicate-3"></div>
+        </section>
+        
+        <!-- Process Section - Duplicate -->
+        <section class="process-section my-24" data-node-id="144:520-duplicate">
+            <div class="process-row" data-node-id="144:521-duplicate">
+                <div class="process-item" data-node-id="144:522-duplicate">
+                    <div class="process-image-container" data-node-id="144:526-duplicate">
+                        <video autoplay muted loop playsinline class="process-image">
+                            <source src="images/bloombit/videos/main_pages.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="process-item process-item-right" data-node-id="144:532-duplicate">
+                    <div class="process-image-container" data-node-id="144:533-duplicate">
+                        <video autoplay muted loop playsinline class="process-image">
+                            <source src="images/bloombit/videos/bluetooth.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="process-row" data-node-id="144:521-duplicate-2">
+                <div class="process-item" data-node-id="144:522-duplicate-2">
+                    <div class="process-image-container" data-node-id="144:526-duplicate-2">
+                        <video autoplay muted loop playsinline class="process-image">
+                            <source src="images/bloombit/videos/eyecandy.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="process-item process-item-right" data-node-id="144:532-duplicate-2">
+                    <div class="process-image-container" data-node-id="144:533-duplicate-2">
+                        <img src="images/bloombit/thumbnail_main.avif" alt="Final prototype" class="process-image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Key Takeaways Section -->
+        <section class="process-section my-24" data-node-id="144:520-key-takeaways">
+            <div class="process-row" data-node-id="144:521-key-takeaways">
+                <div class="process-item" data-node-id="144:522-key-takeaways">
+                    <div class="process-header" data-node-id="144:523-key-takeaways">
+                        <div class="process-square" data-node-id="144:524-key-takeaways"></div>
+                        <p class="process-label" data-node-id="144:525-key-takeaways">
+                            KEY TAKEAWAYS
+                        </p>
+                    </div>
+                    <p class="research-text research-text-broad" data-node-id="144:500-key-takeaways" style="width: 100%;">
+                        Plant owners need a comprehensive solution that monitors all their plants, not just individual subscription based sensors that currently get all the attention.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Next Project Navigation -->
+        <section class="next-project-nav my-24" data-node-id="144:600">
+            <div class="next-project-container" data-node-id="144:601">
+                <a href="naxnow.html" class="next-project-link link-text-01 text-white hover:text-[#ff2525] transition-colors" data-node-id="144:602">
+                    Next Project →
+                </a>
+                <a href="experiments.html" class="next-project-link link-text-01 text-white hover:text-[#ff2525] transition-colors" data-node-id="144:603">
+                    Experiments →
+                </a>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer (All Breakpoints) -->
+    <footer class="footer-responsive bg-white flex flex-col gap-[34px] items-start px-[48px] pt-[48px] pb-[24px] w-full" data-name="Footer">
+        
+        <!-- Footer Navigation Links -->
+        <div class="flex flex-col sm:flex-row gap-[20px] sm:gap-[200px] items-center justify-center link-text-01 text-black w-full">
+            <a href="product-work.html" class="nav-link hover:text-[#ff2525] transition-colors">Product Work</a>
+            <a href="experiments.html" class="nav-link hover:text-[#ff2525] transition-colors">Experiments</a>
+        </div>
+        
+        <!-- Footer Title -->
+        <div class="flex gap-[23px] h-[85px] items-center">
+            <p class="heading-01 text-black whitespace-nowrap">&lt;Footer&gt;</p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex flex-col gap-[22px] items-start link-text-01 text-black">
+            <a href="https://linkedin.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Linkedin</a>
+            <a href="https://instagram.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Instagram</a>
+            <a href="https://medium.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Medium</a>
+            <a href="mailto:dylandeweydesign@gmail.com" class="nav-link hover:text-[#ff2525] transition-colors">dylandeweydesign@gmail.com</a>
+        </div>
+        
+        <!-- Bottom Right Text -->
+        <div class="flex gap-[10px] items-end justify-end w-full">
+            <p class="link-text-01 text-black">Yes, the &lt;footer&gt; is by design.</p>
+        </div>
+        
+    </footer>
+    
+    <script>
+        
+        // GSAP Animations
+        function initAnimations() {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate eye candy section
+            gsap.from(".eye-candy-section", {
+                duration: 1.2,
+                y: 100,
+                opacity: 0,
+                scale: 0.9,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".eye-candy-section",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate intro title
+            gsap.from(".intro-title-text", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".intro-title-section",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate details sections
+            gsap.from(".impact-section, .weapons-section", {
+                duration: 0.8,
+                y: 30,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".intro-details",
+                    start: "top 60%",
+                    end: "bottom 40%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate problem statement section
+            gsap.from(".problem-statement-section", {
+                duration: 1.2,
+                y: 100,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".problem-statement-section",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate problem content with stagger
+            gsap.from(".problem-statement-section:not([data-node-id*='duplicate']) .intro-info", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".problem-content",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate all divider sections
+            gsap.utils.toArray(".divider-section").forEach((divider) => {
+                gsap.from(divider, {
+                    duration: 0.6,
+                    scaleX: 0,
+                    opacity: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: divider,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+            
+            // Animate solution section
+            gsap.from(".solution-section", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".solution-section",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate solution elements with stagger
+            gsap.from(".solution-number, .solution-text", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".solution-section",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 01
+            gsap.from(".section-01", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-01",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 01 elements with stagger
+            gsap.from(".section-01-number, .section-01-text", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-01",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate broad search section
+            gsap.from(".research-item-left", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".research-item-left",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Key takeaways section - no animation, always visible
+            gsap.set(".process-section[data-node-id*='key-takeaways']", {
+                opacity: 1,
+                y: 0
+            });
+            
+            // Set initial state for problem statement duplicate section
+            gsap.set(".problem-statement-section[data-node-id*='duplicate']", {
+                opacity: 0,
+                y: 50
+            });
+            
+            gsap.set(".problem-statement-section[data-node-id*='duplicate'] .intro-info", {
+                opacity: 0,
+                y: 50
+            });
+            
+            // Animate problem statement duplicate section
+            gsap.to(".problem-statement-section[data-node-id*='duplicate']", {
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".problem-statement-section[data-node-id*='duplicate']",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate problem statement duplicate elements with stagger
+            gsap.to(".problem-statement-section[data-node-id*='duplicate'] .intro-info", {
+                duration: 0.8,
+                y: 0,
+                opacity: 1,
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".problem-statement-section[data-node-id*='duplicate']",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate research content
+            gsap.from(".research-content", {
+                duration: 1.2,
+                y: 100,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".research-content",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate research items with stagger
+            gsap.from(".research-item", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".research-content",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 02
+            gsap.from(".section-02", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-02",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 02 elements with stagger
+            gsap.from(".section-02-text, .section-02-number", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-02",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 03
+            gsap.from(".section-03", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-03",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate section 03 elements with stagger
+            gsap.from(".section-03-text, .section-03-number", {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".section-03",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate all image placeholders like hero video - individual triggers
+            gsap.utils.toArray(".process-square-placeholder").forEach((placeholder) => {
+                gsap.from(placeholder, {
+                    duration: 1.2,
+                    y: 100,
+                    opacity: 0,
+                    scale: 0.9,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: placeholder,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+            
+            // Animate image containers with individual triggers
+            gsap.utils.toArray(".process-image-container").forEach((container) => {
+                gsap.from(container, {
+                    duration: 1.2,
+                    y: 100,
+                    opacity: 0,
+                    scale: 0.9,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        }
+        
+        // Initialize animations
+        initAnimations();
+    </script>
+
+</body>
+</html> 
+</html> 
+
+

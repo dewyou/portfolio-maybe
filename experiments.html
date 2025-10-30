@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments - Dylan Dewey Widick</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ff2525'/></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="home-style.css">
+    <link rel="stylesheet" href="work-cards.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-black">
+    
+    <!-- Navbar -->
+    <nav class="w-full px-8 py-6" data-name="navbar">
+        <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
+            
+            <!-- Logo/Name -->
+            <a href="home.html" class="flex gap-[18px] items-center" data-name="logo">
+                <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
+            </a>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="flex gap-[89px] items-center link-text-01 text-white">
+                <a href="product-work.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Product Work</a>
+                <a href="experiments.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Experiments</a>
+            </div>
+            
+            <!-- Email - Copy to Clipboard (Desktop) -->
+            <button 
+                id="email-copy" 
+                class="nav-link link-text-01 text-white whitespace-nowrap hover:text-[#ff2525] transition-colors" 
+                onclick="copyEmail()"
+                title="Click to copy email"
+            >
+                dylandeweydesign@gmail.com
+            </button>
+            
+            <!-- Hamburger Menu (Tablet) -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="product-work.html" class="nav-link text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
+        <a href="experiments.html" class="nav-link text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
+        <button 
+            class="nav-link text-white hover:text-[#ff2525] transition-colors" 
+            onclick="copyEmail(); toggleMobileMenu();"
+            title="Click to copy email"
+        >
+            dylandeweydesign@gmail.com
+        </button>
+    </div>
+    
+    <!-- Experiments Grid -->
+    <div class="experiments-grid">
+        
+        <!-- Taco Mix -->
+        <div class="experiment-card" data-name="TacoMix">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Taco Mix</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Branding</p>
+                            <p>Graphic Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Daily Ui -->
+        <div class="experiment-card" data-name="DailyUi">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Daily Ui</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ui Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Strukt -->
+        <div class="experiment-card" data-name="Strukt">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Strukt</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ui Design</p>
+                            <p>Motion Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EnableZone -->
+        <div class="experiment-card" data-name="EnableZone">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">EnableZone</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ui/Ux</p>
+                            <p>Product Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bridge -->
+        <div class="experiment-card" data-name="Bridge">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Bridge</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ai</p>
+                            <p>Ui/Ux</p>
+                            <p>Product Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reel Regs -->
+        <div class="experiment-card" data-name="ReelRegs">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Reel Regs</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ui/Ux</p>
+                            <p>Product Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- UjU -->
+        <div class="experiment-card" data-name="UjU">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">UjU</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Ui/Ux</p>
+                            <p>Product Design</p>
+                            <p>Vibe Coding</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Don Diary -->
+        <div class="experiment-card" data-name="DonDiary">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Don Diary</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Front end</p>
+                            <p>Back end</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Type 01 -->
+        <div class="experiment-card" data-name="Type01">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Type 01</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Product Design</p>
+                            <p>Full Stack Development</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Export em -->
+        <div class="experiment-card" data-name="ExportEm">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="experiment-title whitespace-nowrap">Export em</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Branding</p>
+                        </div>
+                        <div class="flex flex-col gap-[12px] items-start w-full experiment-label">
+                            <p>Graphic Design</p>
+                        </div>
+                        <div class="bg-white w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-white h-[12px] w-full"></div>
+                    <div class="bg-white h-[12px] w-full"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Footer (All Breakpoints) -->
+    <footer class="footer-responsive bg-white flex flex-col gap-[34px] items-start px-[48px] pt-[48px] pb-[24px] w-full" data-name="Footer">
+        
+        <!-- Footer Navigation Links -->
+        <div class="flex flex-col sm:flex-row gap-[20px] sm:gap-[200px] items-center justify-center link-text-01 text-black w-full">
+            <a href="product-work.html" class="nav-link hover:text-[#ff2525] transition-colors">Product Work</a>
+            <a href="experiments.html" class="nav-link hover:text-[#ff2525] transition-colors">Experiments</a>
+        </div>
+        
+        <!-- Footer Title -->
+        <div class="flex gap-[23px] h-[85px] items-center">
+            <p class="heading-01 text-black whitespace-nowrap">&lt;Footer&gt;</p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex flex-col gap-[22px] items-start link-text-01 text-black">
+            <a href="https://linkedin.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Linkedin</a>
+            <a href="https://instagram.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Instagram</a>
+            <a href="https://medium.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Medium</a>
+            <a href="mailto:dylandeweydesign@gmail.com" class="nav-link hover:text-[#ff2525] transition-colors">dylandeweydesign@gmail.com</a>
+        </div>
+        
+        <!-- Bottom Right Text -->
+        <div class="flex gap-[10px] items-end justify-end w-full">
+            <p class="link-text-01 text-black">Yes, the &lt;footer&gt; is by design.</p>
+        </div>
+        
+    </footer>
+    
+    <!-- Common JS -->
+    <script src="common.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="experiments.js"></script>
+
+</body>
+</html>

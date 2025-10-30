@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Work - Dylan Dewey Widick</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="home-style.css">
+    <link rel="stylesheet" href="work-cards.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Common JS -->
+    <script src="common.js"></script>
+</head>
+<body class="bg-black">
+    
+    <!-- Navbar -->
+    <nav class="w-full px-8 py-6" data-name="navbar">
+        <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
+            
+            <!-- Logo/Name -->
+            <a href="home.html" class="flex gap-[18px] items-center" data-name="logo">
+                <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
+            </a>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="flex gap-[89px] items-center link-text-01 text-white">
+                <a href="product-work.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Product Work</a>
+                <a href="experiments.html" class="nav-link whitespace-nowrap hover:text-[#ff2525] transition-colors">Experiments</a>
+            </div>
+            
+            <!-- Email - Copy to Clipboard (Desktop) -->
+            <button 
+                id="email-copy" 
+                class="nav-link link-text-01 text-white whitespace-nowrap hover:text-[#ff2525] transition-colors" 
+                onclick="copyEmail()"
+                title="Click to copy email"
+            >
+                dylandeweydesign@gmail.com
+            </button>
+            
+            <!-- Hamburger Menu (Tablet) -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <div class="hamburger-line" style="background: #ffffff;"></div>
+                <div class="hamburger-line" style="background: #ffffff;"></div>
+                <div class="hamburger-line" style="background: #ffffff;"></div>
+            </div>
+            
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="product-work.html" class="nav-link text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
+        <a href="experiments.html" class="nav-link text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
+        <button 
+            class="nav-link text-white hover:text-[#ff2525] transition-colors" 
+            onclick="copyEmail(); toggleMobileMenu();"
+            title="Click to copy email"
+        >
+            dylandeweydesign@gmail.com
+        </button>
+    </div>
+    
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+        
+        <!-- Bloombit - Top Left -->
+        <a href="bloombit.html" class="project-card" data-name="Bloombit">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="project-title whitespace-nowrap">Bloombit</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full project-label">
+                            <p>HCD Process</p>
+                            <p>Product Design</p>
+                        </div>
+                        <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-[#ff2525] h-[12px] w-full"></div>
+                    <div class="bg-[#ff2525] h-[12px] w-full"></div>
+                </div>
+            </div>
+        </a>
+        
+        <!-- NaxNow - Top Right -->
+        <a href="naxnow.html" class="project-card" data-name="NaxNow">
+            <div class="flex grow items-center justify-between w-full">
+                <div class="flex flex-col h-full items-start justify-between w-[348px]">
+                    <p class="project-title whitespace-nowrap">NaxNow</p>
+                    <div class="flex flex-col gap-[22px] items-start justify-end flex-1 w-full">
+                        <div class="flex flex-col gap-[12px] items-start w-full project-label">
+                            <p>Ui/Ux</p>
+                            <p>Product Design</p>
+                        </div>
+                        <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full items-start justify-between w-[12px]">
+                    <div class="bg-[#ff2525] h-[12px] w-full"></div>
+                    <div class="bg-[#ff2525] h-[12px] w-full"></div>
+                </div>
+            </div>
+        </a>
+        
+        
+    </div>
+    
+    <script>
+        
+        // GSAP Staggered Project Cards Animation
+        function initProjectAnimations() {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Staggered animation for project cards
+            gsap.from(".project-card", {
+                duration: 1.2,
+                y: 100,
+                opacity: 0,
+                scale: 0.9,
+                stagger: {
+                    amount: 0.8, // Total stagger time
+                    from: "start" // Start from the first element
+                },
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".projects-grid",
+                    start: "top 80%", // Start when grid hits 80% of viewport
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate project titles with a slight delay
+            gsap.from(".project-title", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".projects-grid",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            
+            // Animate project labels
+            gsap.from(".project-label", {
+                duration: 0.8,
+                y: 30,
+                opacity: 0,
+                stagger: 0.15,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".projects-grid",
+                    start: "top 60%",
+                    end: "bottom 40%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        }
+        
+        // Initialize project animations
+        initProjectAnimations();
+    </script>
+
+    <!-- Footer (All Breakpoints) -->
+    <footer class="footer-responsive bg-white flex flex-col gap-[34px] items-start px-[48px] pt-[48px] pb-[24px] w-full" data-name="Footer">
+        
+        <!-- Footer Navigation Links -->
+        <div class="flex flex-col sm:flex-row gap-[20px] sm:gap-[200px] items-center justify-center link-text-01 text-black w-full">
+            <a href="product-work.html" class="nav-link hover:text-[#ff2525] transition-colors">Product Work</a>
+            <a href="experiments.html" class="nav-link hover:text-[#ff2525] transition-colors">Experiments</a>
+        </div>
+        
+        <!-- Footer Title -->
+        <div class="flex gap-[23px] h-[85px] items-center">
+            <p class="heading-01 text-black whitespace-nowrap">&lt;Footer&gt;</p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex flex-col gap-[22px] items-start link-text-01 text-black">
+            <a href="https://linkedin.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Linkedin</a>
+            <a href="https://instagram.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Instagram</a>
+            <a href="https://medium.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Medium</a>
+            <a href="mailto:dylandeweydesign@gmail.com" class="nav-link hover:text-[#ff2525] transition-colors">dylandeweydesign@gmail.com</a>
+        </div>
+        
+        <!-- Bottom Right Text -->
+        <div class="flex gap-[10px] items-end justify-end w-full">
+            <p class="link-text-01 text-black">Yes, the &lt;footer&gt; is by design.</p>
+        </div>
+        
+    </footer>
+
+</body>
+</html>
+

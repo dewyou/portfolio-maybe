@@ -1,0 +1,388 @@
+/* Custom font fallbacks for Geist fonts */
+@font-face {
+    font-family: 'Geist';
+    src: local('Inter');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: local('JetBrains Mono');
+    font-weight: 500;
+}
+
+/* Design system variables from Figma */
+:root {
+    --text-color-primary: #191919;
+    --heading-font: 'Geist', 'Inter', sans-serif;
+    --body-font: 'Geist Mono', 'JetBrains Mono', monospace;
+}
+
+body {
+    color: var(--text-color-primary);
+}
+
+.heading-01 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 88px;
+    line-height: 0.75;
+    letter-spacing: -1.76px;
+    display: block;
+}
+
+.body-01 {
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.8px;
+}
+
+/* Custom mask styles for images */
+.mask-image-1 {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 390"><rect width="408" height="390" rx="24" fill="white"/></svg>');
+    mask-size: 408px 390px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+
+/* Navbar styles */
+.link-text-01 {
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.56px;
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Secondary text color */
+.text-secondary {
+    color: #9a9a9a;
+}
+
+/* Image gallery masks */
+.image-mask {
+    overflow: hidden;
+    border-radius: 24px;
+    position: relative;
+}
+
+/* Personal photos - ensure they stay within margins on desktop */
+.about-section .flex.gap-\[62px\] {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about-section .flex.gap-\[62px\] > div {
+    max-width: calc(33.333% - 41.33px); /* 33.333% minus gap space */
+    min-width: 0;
+    flex: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Ensure image containers respect boundaries */
+.about-section .flex.gap-\[62px\] > div > div {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Hamburger menu styles (shared by tablet and phone) */
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: #191919;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger animation when open */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Tablet Breakpoint: 581px to 1175px */
+@media screen and (max-width: 1175px) and (min-width: 581px) {
+    /* Hide desktop and tablet hero, show phone hero */
+    .hero-desktop,
+    .hero-tablet {
+        display: none !important;
+    }
+    
+    .hero-phone {
+        display: flex !important;
+    }
+    
+    /* Phone typography for tablet */
+    .heading-01-phone {
+        font-family: var(--heading-font);
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 0.75;
+        letter-spacing: -1.28px;
+        display: block;
+    }
+    
+    .body-01-phone {
+        font-family: var(--body-font);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: -0.64px;
+    }
+    
+    /* Hamburger menu for tablet */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    /* Adjust navbar for tablet */
+    nav > div {
+        justify-content: space-between !important;
+    }
+    
+    /* Show navigation links and email on tablet */
+    nav > div > div:nth-child(2),
+    nav > div > button {
+        display: flex !important;
+    }
+    
+    /* Hide hamburger on tablet since we're showing nav links */
+    .hamburger {
+        display: none !important;
+    }
+    
+    /* Footer responsive on tablet */
+    .footer-responsive {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    
+    /* Mobile menu overlay */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+    
+    .mobile-menu.active {
+        display: flex !important;
+    }
+    
+    .mobile-menu a,
+    .mobile-menu button {
+        font-family: var(--body-font);
+        font-size: 20px;
+        color: #191919;
+        text-decoration: none;
+    }
+    
+    /* Hide about section on tablet to avoid duplication with phone hero */
+    .about-section {
+        display: none !important;
+    }
+    
+    /* Adjust bottom section text for tablet */
+    [data-name="hero-section"] .flex.items-end.justify-between {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    
+    [data-name="hero-section"] .flex.items-end.justify-between .mr-8 {
+        margin-right: 0;
+    }
+    
+}
+
+/* Default: Show desktop, hide tablet */
+.hero-desktop {
+    display: flex;
+}
+
+.hero-tablet {
+    display: none;
+}
+
+/* Hide hamburger and mobile menu on desktop */
+.hamburger {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Phone Breakpoint: Below 580px */
+@media screen and (max-width: 580px) {
+    /* Hide desktop and tablet hero */
+    .hero-desktop,
+    .hero-tablet {
+        display: none !important;
+    }
+    
+    .hero-phone {
+        display: flex !important;
+    }
+    
+    /* Smaller heading for phone */
+    .heading-01-phone {
+        font-family: var(--heading-font);
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 0.75;
+        letter-spacing: -1.28px;
+        display: block;
+    }
+    
+    /* Smaller body text for phone */
+    .body-01-phone {
+        font-family: var(--body-font);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: -0.64px;
+    }
+    
+    /* Hamburger menu for phone */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    /* Adjust navbar */
+    nav {
+        padding: 1.5rem 0.5rem !important;
+    }
+    
+    nav > div {
+        justify-content: space-between !important;
+        width: 100% !important;
+    }
+    
+    nav > div > div:first-child {
+        width: auto !important;
+        justify-content: flex-start !important;
+    }
+    
+    /* Show navigation links and email on phone */
+    nav > div > div:nth-child(2),
+    nav > div > button {
+        display: flex !important;
+    }
+    
+    /* Hide hamburger on phone since we're showing nav links */
+    .hamburger {
+        display: none !important;
+    }
+    
+    /* Mobile menu overlay for phone */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+    
+    .mobile-menu.active {
+        display: flex !important;
+    }
+    
+    .mobile-menu a,
+    .mobile-menu button {
+        font-family: var(--body-font);
+        font-size: 20px;
+        color: #191919;
+        text-decoration: none;
+    }
+    
+    /* Hide about section on phone */
+    .about-section {
+        display: none !important;
+    }
+    
+    /* Footer responsive on phone */
+    .footer-responsive {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Hero section padding */
+    [data-name="hero-section"] {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+/* Default: Hide phone hero */
+.hero-phone {
+    display: none;
+}
+
+/* Footer - show by default on all breakpoints */
+.footer-responsive {
+    display: flex;
+}
+
+/* Phone Carousel */
+.phone-carousel {
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}

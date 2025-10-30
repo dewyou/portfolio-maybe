@@ -1,0 +1,399 @@
+/* =====================================
+   SHARED STYLES FOR PRODUCT-WORK & EXPERIMENTS
+   ===================================== */
+
+/* Note: home-style.css should be loaded before this file in HTML */
+
+/* =====================================
+   CARD STYLES (Shared by both pages)
+   ===================================== */
+
+/* Card title styling - for both projects and experiments */
+.project-title,
+.experiment-title {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 88px;
+    line-height: 64px;
+    letter-spacing: -3.52px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Card label styling - for both projects and experiments */
+.project-label,
+.experiment-label {
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.8px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Card hover effects - title and label color change to red */
+.project-card:hover .project-title,
+.experiment-card:hover .experiment-title {
+    color: #ff2525;
+}
+
+.project-card:hover .project-label,
+.experiment-card:hover .experiment-label {
+    color: #ff2525;
+}
+
+/* Card base styling */
+.project-card,
+.experiment-card {
+    background: #d9d9d9;
+    border-radius: 16px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 400px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Background image layer */
+.project-card::before,
+.experiment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Blur background on hover */
+.project-card:hover::before,
+.experiment-card:hover::before {
+    filter: blur(2px);
+}
+
+/* Keep content above background */
+.project-card > div,
+.experiment-card > div {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show content on hover */
+.project-card:hover > div,
+.experiment-card:hover > div {
+    opacity: 1;
+}
+
+/* =====================================
+   PROJECT-SPECIFIC STYLES
+   ===================================== */
+
+/* Bloombit specific background */
+.project-card[data-name="Bloombit"] {
+    background-image: url('images/bloombit/thumbnail_main.avif');
+}
+
+/* NaxNow specific background */
+.project-card[data-name="NaxNow"] {
+    background-image: url('images/nax-now/main_thumbnail.avif');
+}
+
+/* =====================================
+   EXPERIMENT-SPECIFIC STYLES
+   ===================================== */
+
+/* Taco Mix specific background */
+.experiment-card[data-name="TacoMix"] {
+    background-image: url('images/Taco-Mix/wildposting.avif');
+}
+
+/* Daily UI specific background */
+.experiment-card[data-name="DailyUi"] {
+    background-image: url('images/DailyUi/015.avif');
+}
+
+/* Bridge specific background */
+.experiment-card[data-name="Bridge"] {
+    background-image: url('images/Bridge/complication.avif');
+}
+
+/* Strukt specific background */
+.experiment-card[data-name="Strukt"] {
+    background-image: url('images/Strukt/moodboard.avif');
+}
+
+/* Reel Regs specific background */
+.experiment-card[data-name="ReelRegs"] {
+    background-image: url('images/reel-regulations/mockup_reel.avif');
+}
+
+/* UjU specific background */
+.experiment-card[data-name="UjU"] {
+    background-image: url('images/UjU/uju_thumbnail.avif');
+}
+
+/* EnableZone specific background */
+.experiment-card[data-name="EnableZone"] {
+    background-image: url('images/enablezone/mockup.avif');
+}
+
+/* Type 01 specific background with rotation */
+.experiment-card[data-name="Type01"] {
+    background-image: url('images/Typography/kerning2.avif');
+    background-size: 200% auto;
+    background-position: center;
+}
+
+.experiment-card[data-name="Type01"]::before {
+    transform: rotate(-90deg) scale(1.5);
+    transform-origin: center center;
+}
+
+/* Don Diary specific background */
+.experiment-card[data-name="DonDiary"] {
+    background-image: url('images/Don-Diary/progress.avif');
+}
+
+/* Export em specific background */
+.experiment-card[data-name="ExportEm"] {
+    background-image: url('images/Figma Plug in/cover.avif');
+}
+
+/* =====================================
+   GRID LAYOUTS
+   ===================================== */
+
+/* Projects grid - 2 columns */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 10px;
+    padding: 24px;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Experiments grid - 2 columns, 6 rows */
+.experiments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    padding: 24px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =====================================
+   GALLERY IMAGE STYLES (for experiments overlay)
+   ===================================== */
+
+.eye-candy-image {
+    height: 60vh;
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.eye-candy-image img,
+.eye-candy-image video {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    object-fit: cover;
+    object-position: 50% 50%;
+    pointer-events: none;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.process-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+}
+
+.process-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 8px;
+    display: block;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.process-image-container video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 8px;
+    display: block;
+}
+
+/* Intro title text styling - for experiments overlay */
+.intro-title-text {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    flex-shrink: 0;
+    color: #191919;
+    font-size: 88px;
+    letter-spacing: -1.76px;
+    width: 100%;
+    max-width: 813px;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN - TABLET (581px to 1175px)
+   ===================================== */
+@media screen and (max-width: 1175px) and (min-width: 581px) {
+    /* Smaller titles for tablet */
+    .project-title,
+    .experiment-title {
+        font-size: 64px !important;
+        line-height: 64px !important;
+        letter-spacing: -2.56px !important;
+    }
+    
+    /* Smaller padding for cards */
+    .project-card,
+    .experiment-card {
+        padding: 24px !important;
+    }
+    
+    /* Adjust content width for smaller padding */
+    .project-card .w-\[348px\],
+    .experiment-card .w-\[348px\] {
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Always show content on tablet (no hover effect) */
+    .project-card > div,
+    .experiment-card > div {
+        opacity: 1 !important;
+    }
+    
+    /* No blur on tablet */
+    .project-card::before,
+    .experiment-card::before {
+        filter: none !important;
+    }
+    
+    /* Adjust grids for tablet */
+    .projects-grid {
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+    
+    .experiments-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(6, 1fr) !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* =====================================
+   RESPONSIVE DESIGN - SMALLER TABLET (581px to 771px)
+   ===================================== */
+@media screen and (max-width: 771px) and (min-width: 581px) {
+    /* Even smaller titles */
+    .project-title,
+    .experiment-title {
+        font-size: 48px !important;
+        line-height: 48px !important;
+        letter-spacing: -1.92px !important;
+    }
+}
+
+/* =====================================
+   RESPONSIVE DESIGN - MOBILE (600px and below)
+   ===================================== */
+@media screen and (max-width: 600px) {
+    /* Stack cards vertically */
+    .projects-grid,
+    .experiments-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 10px !important;
+    }
+    
+    /* Ensure cards have good height */
+    .project-card {
+        min-height: 450px !important;
+    }
+    
+    .experiment-card {
+        min-height: 300px !important;
+    }
+    
+    /* Smaller titles for mobile */
+    .experiment-title {
+        font-size: 32px !important;
+        line-height: 32px !important;
+        letter-spacing: -1.28px !important;
+    }
+}
+
+/* Single row layout for 2 cards on larger screens */
+@media screen and (min-width: 601px) {
+    .projects-grid {
+        grid-template-rows: 1fr !important;
+    }
+}
+
+/* =====================================
+   RESPONSIVE DESIGN - OVERLAY STYLES
+   ===================================== */
+@media screen and (max-width: 768px) {
+    .intro-title-text {
+        font-size: 64px;
+        line-height: 70px;
+        letter-spacing: -1.28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro-title-text {
+        font-size: 48px;
+        line-height: 60px;
+        letter-spacing: -0.96px;
+    }
+}
+

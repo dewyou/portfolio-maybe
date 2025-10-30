@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Designer Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ff2525'/></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="home-style.css">
+    
+    <!-- Prevent flash by setting initial CSS values to match JavaScript scaling -->
+    <style>
+        /* Set initial values that match JavaScript scaling to prevent flash */
+        @media (min-width: 1128px) and (max-width: 1728px) {
+            body > div {
+                padding-left: 36px;
+                padding-right: 36px;
+                padding-top: 1px;
+                padding-bottom: 8px;
+                gap: 40px;
+            }
+            
+            body > div > div:first-child {
+                width: 415px;
+                gap: 180px;
+            }
+            
+            body > div > div:last-child {
+                gap: 60px;
+            }
+            
+            .image-container {
+                gap: 12px;
+                height: 500px;
+            }
+            
+            .image-container .basis-0 {
+                border-radius: 14px;
+            }
+        }
+        
+        /* For screens larger than 1728px, use the maximum scaled values */
+        @media (min-width: 1729px) {
+            body > div {
+                padding-left: 46px;
+                padding-right: 46px;
+                padding-top: 2px;
+                padding-bottom: 16px;
+                gap: 50px;
+            }
+            
+            body > div > div:first-child {
+                width: 522px;
+                gap: 227px;
+            }
+            
+            body > div > div:last-child {
+                gap: 60px;
+            }
+            
+            .image-container {
+                gap: 14px;
+                height: 615px;
+            }
+            
+            .image-container .basis-0 {
+                border-radius: 16px;
+            }
+            
+            /* Quote text scaling for large screens */
+            .quote-section p {
+                font-size: 24px !important;
+                letter-spacing: 1.2px !important;
+            }
+        }
+        
+        /* Quote text scaling for the 1128px-1728px range */
+        @media (min-width: 1128px) and (max-width: 1728px) {
+            .quote-section p {
+                font-size: 21px !important;
+                letter-spacing: 1.05px !important;
+            }
+        }
+        
+        /* Ensure navbar links hover effects work */
+        .nav-link:hover {
+            color: #ff2525 !important;
+            text-decoration: underline !important;
+        }
+        
+        /* Ensure navigation links are clickable */
+        nav a[href*=".html"] {
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+        }
+        
+        /* Ensure email button hover effects work */
+        #email-copy {
+            position: relative;
+            z-index: 20;
+            pointer-events: auto;
+        }
+        
+        #email-copy:hover {
+            color: #ff2525 !important;
+            text-decoration: underline !important;
+        }
+        
+        /* Hamburger menu animation */
+        #hamburger-menu.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        #hamburger-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        #hamburger-menu.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Mobile menu overlay */
+        .mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) !important;
+        }
+        
+        /* Ensure mobile menu elements are white */
+        .mobile-menu button svg,
+        .mobile-menu a {
+            color: white !important;
+        }
+        
+        .mobile-menu button svg path {
+            stroke: white !important;
+        }
+        
+        /* Ensure mobile menu hover effects work */
+        .mobile-menu a:hover {
+            color: #ff2525 !important;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'geist': ['Geist', 'Inter', 'sans-serif'],
+                        'geist-mono': ['Geist Mono', 'JetBrains Mono', 'monospace'],
+                    },
+                    screens: {
+                        'mobile': '0px',
+                        'mobile-max': '599px',
+                        'tablet': '600px',
+                        'tablet-max': '1127px',
+                        'desktop-min': '1128px',
+                        'desktop-max': '1728px',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#151515] min-h-screen">
+    <!-- Desktop Navbar (hidden on tablet/mobile) -->
+    <nav class="hidden desktop-min:block desktop-max:block w-full px-8 py-6" data-name="navbar">
+        <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
+            
+            <!-- Logo/Name -->
+            <a href="home.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
+                <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
+            </a>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="flex gap-[89px] items-center text-white">
+                <a href="product-work.html" class="text-sm font-medium whitespace-nowrap hover:text-[#ff2525] hover:underline transition-colors cursor-pointer font-['Geist_Mono',_monospace]">Product Work</a>
+                <a href="experiments.html" class="text-sm font-medium whitespace-nowrap hover:text-[#ff2525] hover:underline transition-colors cursor-pointer font-['Geist_Mono',_monospace]">Experiments</a>
+            </div>
+            
+            <!-- Email - Copy to Clipboard (Desktop) -->
+            <a 
+                id="email-copy" 
+                href="#" 
+                class="text-sm font-medium text-white whitespace-nowrap hover:text-[#ff2525] hover:underline transition-colors cursor-pointer font-['Geist_Mono',_monospace]" 
+                onclick="copyEmail(); return false;"
+                title="Click to copy email"
+            >
+                dylandeweydesign@gmail.com
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Tablet/Mobile Navbar with Hamburger Menu -->
+    <nav class="tablet:block mobile:block desktop-min:hidden desktop-max:hidden w-full px-8 py-6" data-name="navbar-mobile">
+        <div class="flex items-center justify-between w-full" data-name="Nav_Bar">
+            
+            <!-- Logo/Name -->
+            <a href="home.html" class="flex gap-[18px] items-center hover:opacity-80 transition-opacity" data-name="logo">
+                <div class="bg-[#ff2525] w-[12px] h-[12px]"></div>
+                <p class="link-text-01 text-white whitespace-nowrap">Dylan Dewey Widick</p>
+            </a>
+            
+            <!-- Hamburger Menu Button -->
+            <button id="hamburger-menu" class="flex flex-col gap-[4px] cursor-pointer" onclick="toggleMobileMenu()">
+                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
+                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
+                <div class="hamburger-line bg-white w-6 h-[2px] transition-all"></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-[#151515] z-50 -translate-y-full transition-transform duration-300">
+            <!-- Close Arrow -->
+            <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-white hover:text-[#ff2525] transition-colors">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" stroke="white"></path>
+                </svg>
+            </button>
+            
+            <!-- Navigation Links Container -->
+            <div class="flex flex-col items-center justify-center h-full gap-8">
+                <a href="product-work.html" class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Product Work</a>
+                <a href="experiments.html" class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors" onclick="toggleMobileMenu()">Experiments</a>
+                <a 
+                    href="#" 
+                    id="mobile-email-copy"
+                    class="text-2xl font-['Geist_Mono',_monospace] text-white hover:text-[#ff2525] transition-colors cursor-pointer" 
+                    onclick="copyEmailMobile(); return false;"
+                >
+                    dylandeweydesign@gmail.com
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Desktop Layout (hidden on tablet) -->
+    <div class="main-content box-border content-stretch flex flex-col desktop-min:flex-row gap-[30px] desktop-min:gap-[40px] desktop-max:gap-[50px] items-end px-[24px] desktop-min:px-[36px] desktop-max:px-[46px] relative size-full min-h-screen -mt-16 hidden tablet:hidden tablet-max:hidden desktop-min:flex desktop-max:flex">
+        <!-- Left Column -->
+        <div class="content-stretch flex flex-col gap-[150px] desktop-min:gap-[180px] desktop-max:gap-[227px] items-start relative shrink-0 w-full desktop-min:w-[400px] desktop-max:w-[522px]">
+            <!-- Main Title -->
+            <h1 class="intro-title font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-full desktop-min:w-[415px] desktop-max:w-[415px]">
+                Product Designer
+            </h1>
+            
+            <!-- Content Section -->
+            <div class="content-stretch flex flex-col gap-[60px] desktop-min:gap-[70px] desktop-max:gap-[85px] items-start relative shrink-0 w-full">
+                <!-- Description -->
+                <p class="intro-description font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[16px] desktop-min:text-[18px] desktop-max:text-[20px] tracking-[0.5px] desktop-min:tracking-[0.8px] desktop-max:tracking-[1.2px] w-full desktop-min:w-[320px] desktop-max:w-[410px]">
+                    Believing that design is a process, my joy comes from problem solving and chasing true functionality. Constantly launching explorations into the changing design landscape.
+                </p>
+                
+                <!-- Social Links -->
+                <div class="social-links content-stretch flex flex-col gap-[18px] desktop-min:gap-[20px] desktop-max:gap-[22px] items-start relative shrink-0 w-full desktop-min:w-[170px] desktop-max:w-[211px]">
+                    <!-- Medium Link -->
+                    <a href="https://medium.com/@dylandewey" target="_blank" class="content-stretch flex gap-[20px] desktop-min:gap-[23px] desktop-max:gap-[26px] items-center relative shrink-0 w-full">
+                        <div class="h-[18px] relative shrink-0 w-[70px] desktop-min:w-[80px] desktop-max:w-[90px]">
+                            <div class="absolute h-[9px] left-0 top-[4.5px] w-[16px]">
+                                <svg class="w-4 h-4 text-white hover:text-[#ff2525] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    
+                      <!-- Instagram Link -->
+                      <a href="https://www.instagram.com/wireframe.ddw/" target="_blank" class="h-[18px] relative shrink-0 w-full">
+                          <div class="absolute content-stretch flex gap-0 items-center left-0 top-0">
+                              <div class="relative shrink-0 size-[15px]">
+                                  <svg class="w-4 h-4 text-white hover:text-[#ff2525] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.069-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.417-10.845c0 .796-.646 1.442-1.442 1.442-.796 0-1.442-.646-1.442-1.442s.646-1.442 1.442-1.442c.796 0 1.442.646 1.442 1.442z"/>
+                                  </svg>
+                              </div>
+                          </div>
+                      </a>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="nav-dots content-stretch flex items-center justify-between relative shrink-0 w-full">
+                    <div class="bg-white shrink-0 w-[10px] h-[10px] desktop-min:w-[11px] desktop-min:h-[11px] desktop-max:w-[12px] desktop-max:h-[12px]"></div>
+                    <div class="bg-white shrink-0 w-[10px] h-[10px] desktop-min:w-[11px] desktop-min:h-[11px] desktop-max:w-[12px] desktop-max:h-[12px]"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="basis-0 content-stretch flex flex-col gap-[60px] desktop-min:gap-[70px] desktop-max:gap-[80px] grow items-start min-h-px min-w-px relative shrink-0">
+            <!-- Quote Section -->
+            <div class="quote-section content-stretch flex flex-col gap-[8px] desktop-min:gap-[9px] desktop-max:gap-[10px] items-start justify-center relative shrink-0 w-full">
+                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[20px] tracking-[0.9px] w-full">
+                    As a young product designer there's never been a better time to surf the curve. Rapidly adapting to the shifts of the tide, I am apart of a fresh do it all generation of design.
+                </p>
+            </div>
+            
+            <!-- Image Placeholders -->
+            <div class="image-container content-stretch flex flex-col sm:flex-row gap-[10px] desktop-min:gap-[12px] desktop-max:gap-[14px] items-center relative shrink-0 w-full">
+                <a href="bloombit.html" class="basis-0 grow h-full min-h-px min-w-px rounded-[12px] desktop-min:rounded-[14px] desktop-max:rounded-[16px] shrink-0 overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/bloombit/thumbnail_main.avif" alt="Bloombit Project" class="w-full h-full object-cover">
+                </a>
+                <a href="naxnow.html" class="basis-0 grow h-full min-h-px min-w-px rounded-[12px] desktop-min:rounded-[14px] desktop-max:rounded-[16px] shrink-0 overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/nax-now/main_thumbnail.avif" alt="NaxNow Project" class="w-full h-full object-cover">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tablet Layout (hidden on desktop) -->
+    <div class="tablet-content box-border content-stretch flex flex-col gap-[36px] items-start justify-center px-[46px] py-[48px] relative size-full min-h-[1200px] hidden tablet:flex tablet-max:flex desktop-min:hidden desktop-max:hidden -mt-16 tablet:mt-8 tablet-max:mt-8">
+        <!-- Title Section -->
+        <div class="content-stretch flex flex-col gap-[56px] h-[530px] items-start relative shrink-0 w-full">
+            <p class="font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
+                Product Designer
+            </p>
+            <div class="content-stretch flex flex-col gap-[85px] items-start relative shrink-0 w-full">
+                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[20px] tracking-[-0.8px] w-[410px]">
+                    Believing that design is a process, my joy comes from problem solving and chasing true functionality. Constantly launching explorations into the changing design landscape.
+                </p>
+                <div class="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[211px]">
+                    <div class="content-stretch flex gap-[26px] items-center relative shrink-0 w-full">
+                        <div class="h-[18px] relative shrink-0 w-[90px]">
+                            <div class="absolute h-[9px] left-0 top-[4.5px] w-[16px]">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
+                                </svg>
+                            </div>
+                            <p class="absolute font-['Geist_Mono',_monospace] font-medium leading-[normal] left-[28px] text-[14px] text-nowrap text-white top-0 tracking-[-0.56px] whitespace-pre">
+                            </p>
+                        </div>
+                        <p class="font-['Geist_Mono',_monospace] font-medium leading-[normal] relative shrink-0 text-[#f1f1f1] text-[14px] text-nowrap tracking-[-0.56px] whitespace-pre">
+                        </p>
+                    </div>
+                    <div class="h-[18px] relative shrink-0 w-full">
+                        <p class="absolute font-['Geist_Mono',_monospace] font-medium leading-[normal] left-[114px] text-[#f1f1f1] text-[14px] text-nowrap top-0 tracking-[-0.56px] whitespace-pre">
+                        </p>
+                        <div class="absolute content-stretch flex gap-[8px] items-center left-0 top-0">
+                            <div class="relative shrink-0 size-[15px]">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.069-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.417-10.845c0 .796-.646 1.442-1.442 1.442-.796 0-1.442-.646-1.442-1.442s.646-1.442 1.442-1.442c.796 0 1.442.646 1.442 1.442z"/>
+                                </svg>
+                            </div>
+                            <p class="font-['Geist_Mono',_monospace] font-medium leading-[normal] relative shrink-0 text-[14px] text-nowrap text-white tracking-[-0.56px] whitespace-pre">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="content-stretch flex items-center justify-between relative shrink-0 w-full">
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+        </div>
+        
+        <!-- Quote and Images Section -->
+        <div class="content-stretch flex flex-col gap-[42px] items-start relative shrink-0 w-full">
+            <div class="content-stretch flex gap-[14px] h-[615px] items-center relative shrink-0 w-full">
+                <a href="bloombit.html" class="basis-0 grow h-full min-h-px min-w-px rounded-[16px] shrink-0 overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/bloombit/thumbnail_main.avif" alt="Bloombit Project" class="w-full h-full object-cover">
+                </a>
+                <a href="naxnow.html" class="basis-0 grow h-full min-h-px min-w-px rounded-[16px] shrink-0 overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/nax-now/main_thumbnail.avif" alt="NaxNow Project" class="w-full h-full object-cover">
+                </a>
+            </div>
+            <div class="content-stretch flex flex-col gap-[10px] items-start justify-center relative shrink-0 w-full">
+                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[24px] tracking-[1.2px] w-full">
+                    As a young product designer there's never been a better time to surf the curve. Rapidly adapting to the shifts of the tide, I am apart of a fresh do it all generation of design.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="content-stretch flex items-center justify-between relative shrink-0 w-full">
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Layout (hidden on tablet and desktop) -->
+    <div class="mobile-content box-border content-stretch flex flex-col gap-[36px] items-start justify-end px-[46px] py-[48px] relative size-full mobile:flex mobile-max:flex tablet:hidden tablet-max:hidden desktop-min:hidden desktop-max:hidden -mt-16 mobile:mt-8 mobile-max:mt-8">
+        <!-- Title Section -->
+        <div class="content-stretch flex flex-col gap-[56px] h-[530px] items-start relative shrink-0 w-full">
+            <p class="font-['Geist',_sans-serif] font-semibold leading-[90px] relative shrink-0 text-[#f1f1f1] text-[88px] tracking-[-1.76px] w-[415px]">
+                Product Designer
+            </p>
+            <div class="content-stretch flex flex-col gap-[85px] items-start relative shrink-0 w-full">
+                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[20px] tracking-[-0.8px] w-[410px]">
+                    Believing that design is a process, my joy comes from problem solving and chasing true functionality. Constantly launching explorations into the changing design landscape.
+                </p>
+                <div class="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[211px]">
+                    <div class="content-stretch flex gap-[26px] items-center relative shrink-0 w-full">
+                        <div class="h-[18px] relative shrink-0 w-[90px]">
+                            <div class="absolute h-[9px] left-0 top-[4.5px] w-[16px]">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
+                                </svg>
+                            </div>
+                            <p class="absolute font-['Geist_Mono',_monospace] font-medium leading-[normal] left-[28px] text-[14px] text-nowrap text-white top-0 tracking-[-0.56px] whitespace-pre">
+                            </p>
+                        </div>
+                        <p class="font-['Geist_Mono',_monospace] font-medium leading-[normal] relative shrink-0 text-[#f1f1f1] text-[14px] text-nowrap tracking-[-0.56px] whitespace-pre">
+                        </p>
+                    </div>
+                    <div class="h-[18px] relative shrink-0 w-full">
+                        <p class="absolute font-['Geist_Mono',_monospace] font-medium leading-[normal] left-[114px] text-[#f1f1f1] text-[14px] text-nowrap top-0 tracking-[-0.56px] whitespace-pre">
+                        </p>
+                        <div class="absolute content-stretch flex gap-[8px] items-center left-0 top-0">
+                            <div class="relative shrink-0 size-[15px]">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.069-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.417-10.845c0 .796-.646 1.442-1.442 1.442-.796 0-1.442-.646-1.442-1.442s.646-1.442 1.442-1.442c.796 0 1.442.646 1.442 1.442z"/>
+                                </svg>
+                            </div>
+                            <p class="font-['Geist_Mono',_monospace] font-medium leading-[normal] relative shrink-0 text-[14px] text-nowrap text-white tracking-[-0.56px] whitespace-pre">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="content-stretch flex items-center justify-between relative shrink-0 w-full">
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+        </div>
+        
+        <!-- Quote and Images Section -->
+        <div class="content-stretch flex flex-col gap-[42px] items-start relative shrink-0 w-full">
+            <div class="content-stretch flex flex-col gap-[14px] h-[615px] items-start justify-center relative shrink-0 w-full">
+                <a href="bloombit.html" class="basis-0 grow min-h-px min-w-px rounded-[16px] shrink-0 w-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/bloombit/thumbnail_main.avif" alt="Bloombit Project" class="w-full h-full object-cover">
+                </a>
+                <a href="naxnow.html" class="basis-0 grow min-h-px min-w-px rounded-[16px] shrink-0 w-full overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    <img src="images/nax-now/main_thumbnail.avif" alt="NaxNow Project" class="w-full h-full object-cover">
+                </a>
+            </div>
+            <div class="content-stretch flex flex-col gap-[10px] items-start justify-center relative shrink-0 w-full">
+                <p class="font-['Geist_Mono',_monospace] font-light leading-[normal] relative shrink-0 text-[#f1f1f1] text-[24px] tracking-[1.2px] w-full">
+                    As a young product designer there's never been a better time to surf the curve. Rapidly adapting to the shifts of the tide, I am apart of a fresh do it all generation of design.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="content-stretch flex items-center justify-between relative shrink-0 w-full">
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+            <div class="bg-white shrink-0 w-[12px] h-[12px]"></div>
+        </div>
+    </div>
+
+    <!-- Footer (All Breakpoints) -->
+    <footer class="footer-responsive bg-white flex flex-col gap-[34px] items-start px-[48px] pt-[48px] pb-[24px] w-full mt-16" data-name="Footer">
+        
+        <!-- Footer Navigation Links -->
+        <div class="flex flex-col sm:flex-row gap-[20px] sm:gap-[200px] items-center justify-center link-text-01 text-black w-full">
+            <a href="product-work.html" class="nav-link hover:text-[#ff2525] hover:underline transition-colors font-['Geist_Mono',_monospace]">Product Work</a>
+            <a href="experiments.html" class="nav-link hover:text-[#ff2525] hover:underline transition-colors font-['Geist_Mono',_monospace]">Experiments</a>
+        </div>
+        
+        <!-- Footer Title -->
+        <div class="flex gap-[23px] h-[85px] items-center">
+            <p class="heading-01 text-black whitespace-nowrap">&lt;Footer&gt;</p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex flex-col gap-[22px] items-start link-text-01 text-black">
+            <a href="https://linkedin.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Linkedin</a>
+            <a href="https://instagram.com" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Instagram</a>
+            <a href="https://medium.com/@dylandewey" target="_blank" class="nav-link hover:text-[#ff2525] transition-colors">Medium</a>
+            <a href="mailto:dylandeweydesign@gmail.com" class="nav-link hover:text-[#ff2525] hover:underline transition-colors">dylandeweydesign@gmail.com</a>
+        </div>
+        
+        <!-- Bottom Right Text -->
+        <div class="flex gap-[10px] items-end justify-end w-full">
+            <p class="link-text-01 text-black">Yes, the &lt;footer&gt; is by design.</p>
+        </div>
+        
+    </footer>
+
+    <!-- Common JS -->
+    <script src="common.js"></script>
+    
+    <script src="home.js"></script>
+</body>
+</html>
